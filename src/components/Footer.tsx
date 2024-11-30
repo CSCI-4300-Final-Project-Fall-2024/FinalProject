@@ -6,8 +6,6 @@ import {
 } from "react-icons/ri";
 import "./footer.css";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { AiOutlineSend } from "react-icons/ai";
 import Image from "next/image";
 
 export default function Footer() {

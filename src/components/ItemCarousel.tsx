@@ -6,9 +6,10 @@ import Item from "./Item";
 
 type ItemCarouselProps = {
   items: ShoppingItem[];
+  getItems: () => void;
 };
 
-export default function ItemCarousel({ items }: ItemCarouselProps) {
+export default function ItemCarousel({ items, getItems }: ItemCarouselProps) {
   const [marginLeft, setMarginLeft] = useState(0);
 
   const style = {
@@ -29,6 +30,7 @@ export default function ItemCarousel({ items }: ItemCarouselProps) {
             ratingCount={150}
             ratingoo5={4.3}
             imgSrc={item.picture}
+            getItems={getItems}
           />
         ))}
       </div>

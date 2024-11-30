@@ -2,18 +2,9 @@
 
 import Nav from "@/components/Nav";
 import { useEffect, useState } from "react";
-import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
-import { IoMdCloseCircle } from "react-icons/io";
-import { MdEdit } from "react-icons/md";
-import Image from "next/image";
 import { ShoppingItem } from "@/lib/types";
-import Link from "next/link";
-import { useSession } from "next-auth/react";
-import { get } from "http";
-import { GetItems } from "@/lib/api";
 import { Input } from "@/components/ui/input";
 import { IoSearchOutline } from "react-icons/io5";
-import { Button } from "@/components/ui/button";
 import ItemCarousel from "@/components/ItemCarousel";
 
 export default function Home() {

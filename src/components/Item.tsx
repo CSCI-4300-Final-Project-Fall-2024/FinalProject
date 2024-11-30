@@ -13,6 +13,7 @@ type ItemProps = {
   ratingoo5: number;
   ratingCount: number;
   imgSrc: string;
+  getItems: () => void;
 };
 
 export default function Item({
@@ -23,6 +24,7 @@ export default function Item({
   ratingoo5,
   ratingCount,
   imgSrc,
+  getItems,
 }: ItemProps) {
   const { data: session } = useSession();
   const user = session?.user;
@@ -38,6 +40,7 @@ export default function Item({
       }
 
       alert("Item Deleted");
+      getItems();
     } catch (error) {
       console.error(error);
       alert("Failed to delete item");
