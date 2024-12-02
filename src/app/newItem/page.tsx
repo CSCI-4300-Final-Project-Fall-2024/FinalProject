@@ -23,10 +23,12 @@ export default function NewItem() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const stringified = JSON.stringify(item);
+    setItem(defaultItem);
     try {
       const response = await fetch("/api/items", {
         method: "POST",
-        body: JSON.stringify(item),
+        body: stringified,
         headers: {
           "Content-Type": "application/json",
         },
@@ -36,7 +38,6 @@ export default function NewItem() {
         throw new Error("Failed to create item");
       }
 
-      setItem(defaultItem);
       router.push("/");
       alert("Item Added");
       console.log(item);
