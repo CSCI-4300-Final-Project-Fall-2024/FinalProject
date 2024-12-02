@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ShoppingItem } from "@/lib/types";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 export default function NewItem() {
   const defaultItem = {
@@ -18,10 +18,9 @@ export default function NewItem() {
   };
 
   const router = useRouter();
-
   const [item, setItem] = useState<ShoppingItem>(defaultItem);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
@@ -49,7 +48,7 @@ export default function NewItem() {
 
   return (
     <form
-      onSubmit={(e) => e.preventDefault()}
+      onSubmit={handleSubmit}
       className="max-w-md ml-28 flex flex-col gap-6"
     >
       <h2 className="text-3xl font-semibold">Create Item</h2>
@@ -98,9 +97,7 @@ export default function NewItem() {
           }}
         />
       </div>
-      <Button variant="outline" onClick={(e) => handleSubmit(e)}>
-        Create Item
-      </Button>
+      <Button variant="outline">Create Item</Button>
     </form>
   );
 }

@@ -64,7 +64,7 @@ export default function Item({
       <div className="inline-flex gap-4 font-bold">
         <span className="text-primary">${salePrice}</span>
         <span className="text-muted-foreground line-through font-light">
-          ${originalPrice}
+          ${Math.trunc(originalPrice * 100) / 100}
         </span>
       </div>
       <div className="inline-flex gap-1 items-center">
